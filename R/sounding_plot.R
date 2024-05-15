@@ -52,7 +52,7 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
   }
   
   convert = FALSE
-  ptop = 100
+  ptop = 700
   
   dev_size = dev.size("in")
   if (dev_size[1] < 10 | dev_size[2] < 7.5) {
@@ -108,9 +108,9 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
   ####
   
   skewt_plot(close_par = FALSE)
-  skewt_lines(output2$dpt, output2$pressure, col = t_col("forestgreen", 10), lwd = 2, ptop = 100)
-  skewt_lines(output$temp, output$pressure, col = t_col("red", 10), lwd = 2, ptop = 100)
-  skewt_lines(output$tempV, output$pressure, col = t_col("red3", 0), lwd = 1, lty = 3, ptop = 100)
+  skewt_lines(output2$dpt, output2$pressure, col = t_col("forestgreen", 10), lwd = 2, ptop = 700)
+  skewt_lines(output$temp, output$pressure, col = t_col("red", 10), lwd = 2, ptop = 700)
+  skewt_lines(output$tempV, output$pressure, col = t_col("red3", 0), lwd = 1, lty = 3, ptop = 700)
   
   text(20, 28, "Hail Growth\nLayer (HGL)", col = "#8470FF90", cex = 0.65, srt = 56)
   
@@ -191,7 +191,7 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
       y_muhgt = skewty(output$pressure[ind_muhgt])
       x_muhgt = skewtx(output$ML[ind_muhgt],skewty(output$pressure[ind_muhgt]))
       
-      skewt_lines(output$ML,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 100)
+      skewt_lines(output$ML,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 700)
       
       v = skewty(c(output$pressure[ind_muhgt:ind_el])) # extra checks for NA coded as -99
       diff = ifelse((skewtx(output$tempV[ind_muhgt:ind_el], v) - skewtx(output$ML[ind_muhgt:ind_el], v)) > 0, 1, 0)
@@ -247,7 +247,7 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
       y_muhgt = skewty(output$pressure[ind_muhgt])
       x_muhgt = skewtx(output$MU[ind_muhgt], skewty(output$pressure[ind_muhgt]))
       
-      skewt_lines(output$MU,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 100)
+      skewt_lines(output$MU,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 700)
       
       v = skewty(c(output$pressure[ind_muhgt:ind_el])) # extra checks for NA coded as -99
       diff = ifelse((skewtx(output$tempV[ind_muhgt:ind_el], v) - skewtx(output$MU[ind_muhgt:ind_el], v)) > 0, 1, 0)
@@ -301,7 +301,7 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
                             output$tempV[ind_lcl]),
                      skewty(output$pressure[ind_lcl]))
       
-      skewt_lines(output$SB,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 100)
+      skewt_lines(output$SB,output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 700)
       
       v = skewty(c(output$pressure[1:ind_el])) # extra checks for NA coded as -99
       diff = ifelse((skewtx(output$tempV[1:ind_el], v) - skewtx(output$SB[1:ind_el], v)) > 0, 1, 0)
@@ -379,7 +379,7 @@ sounding_plot = function(pressure, altitude, temp, dpt, wd, ws,
   }  
   
   if (DCAPE == TRUE) {
-    skewt_lines(output$DN,output$pressure, col = t_col("blue",30), lwd = 1, ptop = 100)
+    skewt_lines(output$DN,output$pressure, col = t_col("blue",30), lwd = 1, ptop = 700)
     ind_top = which(output$altitude - output$altitude[1] == 4000) - 1
     v = skewty(c(output$pressure[1:ind_top])) # extra checks for NA coded as -99
     diff = ifelse((skewtx(output$tempV[1:ind_top], v) - skewtx(output$DN[1:ind_top], v)) > 0, 1, 0)
