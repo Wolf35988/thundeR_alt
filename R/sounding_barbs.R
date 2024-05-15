@@ -30,14 +30,14 @@
 #'
 
 sounding_barbs <- function(pressure, ws, wd, altitude,
-                           ptop = 100, interpolate = TRUE, 
+                           ptop = 700, interpolate = TRUE, 
                            showaxis = FALSE, barb_cex = 0.3, ...){
   
   altitude = altitude - altitude[1]
   
-  if (ptop > 200) {
-    stop("\nptop argument needs to be set < 200 (hPa)!")
-  }
+  #if (ptop > 200) {
+  #  stop("\nptop argument needs to be set < 200 (hPa)!")
+  #}
   
   # whether to convert wind speed from knots to m/s
   # temporarily this argument is disabled
@@ -65,7 +65,7 @@ sounding_barbs <- function(pressure, ws, wd, altitude,
   }
   
   #prs = pressure[which((altitude-altitude[1]) %in% seq(0,16000,500))]
-  prs = c(1050, 1000, 850, 700, 500, 400, 300, seq(from = 200, to = ptop, by = -50))
+  prs = c(1050, 1000, 850, 700)#, 500, 400, 300, seq(from = 200, to = ptop, by = -50)
   NPRES = length(prs)
   
   ypos = skewty(prs[2:NPRES])
