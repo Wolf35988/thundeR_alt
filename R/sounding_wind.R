@@ -23,11 +23,11 @@
 #' attach(sounding_vienna)
 #' sounding_wind(pressure = pressure, ws = ws, yaxs = TRUE)
 
-sounding_wind = function(pressure, ws, ptop = 100, yaxs = TRUE, ...){
+sounding_wind = function(pressure, ws, ptop = 700, yaxs = TRUE, ...){
         
-        if (ptop > 200) {
-                stop("\nptop argument needs to be set < 200 (hPa)!")
-        }
+        #if (ptop > 200) {
+        #        stop("\nptop argument needs to be set < 200 (hPa)!")
+        #}
         
         # convert wind speed from knots to m/s
         ws = ws * 0.51444
@@ -49,7 +49,7 @@ sounding_wind = function(pressure, ws, ptop = 100, yaxs = TRUE, ...){
         mtext(side = 1, line = 1.2, paste("Wind speed (m/s)"), cex = 0.8)
         
         segments(x0 = ws_units, y0 = ymax, x1 = ws_units, y1 = ymin, lwd = 0.5, col = "black", lty = 3)
-        prs = c(1050, 1000, 850, 700, 500, 400, 300, seq(from = 200, to = ptop, by = -50))
+        prs = c(1050, 1000, 850, 700)#, 500, 400, 300, seq(from = 200, to = ptop, by = -50)
         Npressure = length(prs)
         
         ypos = skewty(prs[2:Npressure])
