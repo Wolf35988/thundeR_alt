@@ -27,7 +27,7 @@
 #' skewt_lines(temp, pressure, type = 'l', col='red', lwd = 2.5) 
 #' 
 
-skewt_lines = function(temp, pressure, ptop = 100, ...) {
+skewt_lines = function(temp, pressure, ptop = 700, ...) {
   ind = pressure >= ptop
   v = skewty(pressure[ind]) # extra checks for NA coded as -99
   u = skewtx(temp[ind], v)
